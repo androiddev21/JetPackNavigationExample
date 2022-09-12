@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/subGraphNews">
+
+    <fragment
+        android:id="@+id/likesFragment"
+        android:name="com.example.jetpacknavigation.screens.LikesFragment"
+        android:label="LikesFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.jetpacknavigation.screens.SettingsFragment"
+        android:label="SettingsFragment" />
+    <navigation
+        android:id="@+id/subGraphNews"
+        app:startDestination="@id/newsFragment">
+        <fragment
+            android:id="@+id/newsFragment"
+            android:name="com.example.jetpacknavigation.screens.NewsFragment"
+            android:label="NewsFragment">
+            <action
+                android:id="@+id/action_newsFragment_to_detailsFragment"
+                app:destination="@id/detailsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/detailsFragment"
+            android:name="com.example.jetpacknavigation.screens.DetailsFragment"
+            android:label="DetailsFragment">
+            <argument
+                android:name="detailsId"
+                app:argType="long" />
+        </fragment>
+    </navigation>
+</navigation>
